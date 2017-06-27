@@ -71,7 +71,6 @@ if __name__ == "__main__":
                 data += [row]
 
     print 'number of rows: {0}'.format(len(data))
-    csvheader = ['timestamp','Status','GMS','GWk','NSats','HDop','Lat','Lng','Alt','Spd','GCrs','VZ','U','DesRoll','Roll','DesPitch','Pitch','DesYaw','Yaw','ErrRP','ErrYaw']
 
     # write to file
     with open('{0}/out.csv'.format(os.path.dirname(args.file)), 'wb') as outcsv:
@@ -85,7 +84,7 @@ if __name__ == "__main__":
         # writer.writerows(out)
 
         # write header row
-        header = ['time', 'datetime', 'lat', 'long', 'alt', 'slope', 'cross_slope']
+        header = ['time', 'datetime', 'lat', 'long', 'alt', 'cross_slope', 'slope']
         writer.writerow(header)
 
         gps = [x for x in data if x[0] == 'GPS' and int(x[2]) not in [0, 1]]
